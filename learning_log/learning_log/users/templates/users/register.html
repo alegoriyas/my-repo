@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    {% extends "learning_logs/base.html" %}
+
+    {% block content %}
+        <h2>Registration Form</h2>
+        <form method='post' action="{% url 'users:register' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button name="submit">register</button>
+            <input type="hidden" name="next" value="{% url 'learning_logs:index' %}">
+        </form>
+    {% endblock content %}
+</body>
+</html>
